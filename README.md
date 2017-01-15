@@ -2,7 +2,7 @@
 Viola Online Task Management App
 
 # Nedir ?
-Online task management uygulamasıdır. (OnlyOffice, Redbooth, Intervals gibi.)
+Projelerinizi, görevlerinizi ve görevlere harcadığınız süreleri takip edebileceğiniz online task management uygulamasıdır. (OnlyOffice, Redbooth, Intervals vb gibi.)
 
 # Neler Yapılabilir ?
 - Şirket yönetimi
@@ -19,9 +19,10 @@ Online task management uygulamasıdır. (OnlyOffice, Redbooth, Intervals gibi.)
 
 # Kullanılan Teknolojiler - Third Party Kütüphaneler
 Back-end
+- C#
 - Net Framework 4.6.1
-- ASP.NET MVC 5 (C#)
-- Entity Framework 6
+- ASP.NET MVC 5
+- Entity Framework 6 (Code First)
 - AutoMapper 5
 - Grid Mvc 2
 
