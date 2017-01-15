@@ -1,0 +1,103 @@
+﻿@{ 
+    string controllerName = @Html.ControllerName();
+    string clsActive = "active";
+
+    var curUser = Viola.Models.User.GetCurrentUser();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - Viola</title>
+
+    <script>
+        // site parametreleri
+        var violaParameters = {
+            language: "@Html.Raw(curUser.Language().WebLanguageId)",
+            datepickerFormat: "@Html.Raw(curUser.DatepickerFormatString())"
+        };
+    </script>
+
+    <!-- bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    @Styles.Render("~/Content/gridmvc")
+    @Styles.Render("~/Content/select2")
+    @Styles.Render("~/Content/datetimepicker")
+    @Styles.Render("~/Content/main")
+
+    @RenderSection("styles", required: false)
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                
+                <h1 class="text-center">Viola</h1>
+
+                <div class="text-center">
+                    @Viola.Models.Company.GetCurrentCompany().Name
+                </div>
+
+                <p>
+                    <div class="icon-addon addon-md">
+                        <input type="text" class="form-control" id="search-input" placeholder="Search...">
+                        <label for="search-input" class="glyphicon glyphicon-search" rel="tooltip" title="Search Client, Project, Task, Effort..."></label>
+                    </div>
+                </p>
+                <br />
+
+                @Html.Partial("_LoginPartial")
+                <br />
+                <br />
+
+                <ul class="nav nav-sidebar">
+                    <li class="@Html.Raw(controllerName == "Home" ? clsActive : "")">@Html.ActionLink(@Ress.Global.Home, "Index", "Home")</li>
+                    <li class="@Html.Raw(controllerName == "Projects" ? clsActive : "")">@Html.ActionLink(@Ress.Global.Projects, "Index", "Projects")</li>
+                    <li class="@Html.Raw(controllerName == "Tasks" ? clsActive : "")">@Html.ActionLink(@Ress.Global.Tasks, "Index", "Tasks")</li>
+                    
+                    @if (Viola.Models.User.GetCurrentUser().UserRole >= UserRole.User)
+                    {
+                        <li class="@Html.Raw(controllerName == "Efforts" ? clsActive : "")">@Html.ActionLink(@Ress.Global.Efforts, "Index", "Efforts")</li>
+                    }
+
+                    @if (Viola.Models.User.GetCurrentUser().UserRole == UserRole.Admin)
+                    {
+                        <li class="@Html.Raw(controllerName == "Users" ? clsActive : "")">@Html.ActionLink(@Ress.Global.Users, "Index", "Users")</li>
+                        <li class="@Html.Raw(controllerName == "Companies" ? clsActive : "")">@Html.ActionLink(@Ress.Global.CompanySettings, "Index", "Companies")</li>
+                    }
+                </ul>
+
+                <p>&nbsp;</p>
+                <p class="text-center">&copy; @DateTime.Now.Year - Viola.</p>
+            </div>
+
+
+
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+
+   
+    <!-- JavaScript
+    ================================================== -->
+    <!-- jquery -->
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <!-- bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    @Scripts.Render("~/bundles/gridmvc")
+    @Scripts.Render("~/bundles/select2")
+    @Scripts.Render("~/bundles/datetimepicker")
+    @Scripts.Render("~/bundles/main")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

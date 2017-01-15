@@ -1,0 +1,37 @@
+﻿@using GridMvc.Html
+@model IEnumerable<Viola.Models.Task>
+
+@{
+    ViewBag.Title = "Tasks";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <a class="btn btn-default" href="@Url.Action("Create")">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
+    </a>
+</p>
+<p>
+    <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-primary btn-sm">All</button>
+        <button type="button" class="btn btn-default btn-sm">Created by me</button>
+        <button type="button" class="btn btn-default btn-sm">Assigned to me</button>
+    </div>
+</p>
+
+<br />
+
+@Html.Grid(Model).Columns(col =>
+{
+    col.Add(x => x.Name).Titled("Task name").Encoded(false).Sanitized(false)
+        .RenderValueAs(d => @Html.ActionLink(d.Name, "Details", new { id = d.Id }));
+
+    col.Add(x => x.Project.Name).Titled("Project").Encoded(false).Sanitized(false)
+        .RenderValueAs(d => @Html.ActionLink(d.Project.Name, "Details", "Projects", new { id = d.ProjectId }, null));
+
+    col.Add(x => x.Priority);
+    col.Add(x => x.Status);
+    col.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(d => @Html.ActionLink("Edit", "Edit", new { id = d.Id }));
+    col.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(d => @Html.ActionLink("Delete", "Delete", new { id = d.Id }));
+}).WithPaging(50).Sortable(true).Filterable(true)

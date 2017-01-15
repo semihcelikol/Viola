@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="media">
+            <a class="pull-left">
+                <img class="media-object dp img-circle" src="@Html.Raw(Viola.Models.User.GetCurrentUser().GravatarUrl())" style="width: 60px;height:60px;">
+            </a>
+
+            <div class="media-body">
+                <h4>@Html.Raw(Viola.Models.User.GetCurrentUser().FullName)</h4>
+
+                @Html.ActionLink("Profile", "Details", "Users", new { id = Viola.Models.User.GetCurrentUserId() }, new { @class = "btn btn-default btn-xs" })
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-default btn-xs"> Log off </a>
+            </div>
+        </div>
+
+        
+    }
+}

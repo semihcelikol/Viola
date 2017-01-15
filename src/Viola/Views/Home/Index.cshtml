@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Viola.Models.Effort>
+@{
+    ViewBag.Title = "Home";
+}
+
+@if (Viola.Models.User.IsAuthenticated())
+{
+    <h2>Welcome, @Viola.Models.User.GetCurrentUser().FullName.</h2>
+}
+
+<br />
+<br />
+
+<h3>Weekly Summary</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            @for (int x = 0; x <= 6; x++)
+            {
+                <th>
+                    @{
+                        var dt = DateTime.Now.StartOfWeek().AddDays(x);
+
+                        if (dt.Date == DateTime.Now.Date)
+                        {
+                            @Html.Raw(String.Format("{0} ({1})", dt.ToShortDateString(), "Today"));
+                        }
+                        else
+                        {
+                            @Html.Raw(dt.ToShortDateString());
+                        }
+                    }
+
+
+                </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @for (int i = 0; i <= 6; i++)
+            {
+                <td>@Viola.Models.Effort.SumSizeByTransDate(DateTime.Now.StartOfWeek().AddDays(i)).ToString()</td>
+            }
+        </tr>
+    </tbody>
+</table>
+
+
+<br />
+<br />
+
+<h3>Today Efforts - @DateTime.Now.ToShortDateString()</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Project name</th>
+            <th>Task name</th>
+            <th>Size</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Task.Project.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Task.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Size)</td>
+            </tr>
+        }
+    </tbody>
+</table>

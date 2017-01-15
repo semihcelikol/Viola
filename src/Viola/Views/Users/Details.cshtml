@@ -1,0 +1,42 @@
+﻿@model Viola.Models.User
+@{
+    ViewBag.Title = @Model.FullName + " Profile";
+}
+
+
+<h2>@Model.FullName</h2>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-default btn-sm" })
+    @if (Model.Id == Viola.Models.User.GetCurrentUserId())
+    {
+        @Html.ActionLink("Change password", "ChangePassword", "Manage", null, new { @class = "btn btn-default btn-sm" })
+    }
+
+    @if (Viola.Models.User.GetCurrentUser().UserRole == UserRole.Admin)
+    {
+        @Html.ActionLink("Back to users", "Index", "Users", null, new { @class = "btn btn-default btn-sm" })
+    }
+</p>
+
+<p>
+    <img src="@Model.GravatarUrl()" />
+</p>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>
+

@@ -1,0 +1,31 @@
+﻿@using Viola.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin"}))
+{
+    @Html.AntiForgeryToken()
+
+
+    <h3 class="form-signin-heading">Viola, Log in.</h3>
+    <hr class="colorgraph"><br>
+
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+    @Html.PasswordFor(m => m.Password, new { @class= "form-control", placeholder = "Password" })
+
+    <p>
+        @Html.CheckBoxFor(m => m.RememberMe, new { @checked = "checked" })
+        @Html.LabelFor(m => m.RememberMe)
+    </p>
+    
+
+    <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Login</button>
+}
+
+
+@*@Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
