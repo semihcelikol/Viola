@@ -16,7 +16,7 @@ Projelerinizi, görevlerinizi ve görevlere harcadığınız süreleri takip ede
 - Çoklu dil desteği (an itibariyle tam ingilizce desteği, kısmi türkçe desteği bulunuyor)
 - Lokalizasyon (Tarih formatının ve saat timezone'unun kullanıcı bazlı değiştirilebilmesi)
 - Yetkilendirme (External, User, Admin)
-- Veritabanı ve kodlaması SaaS uygulama olarak tasarlandı. Farklı Fakat an itibariyle sadece tek bir şirket üzerinden çalışıyor.
+- Veritabanı ve kodlaması SaaS uygulama olarak tasarlandı. Fakat an itibariyle sadece tek bir şirket üzerinden çalışıyor.
 
 # Kullanılan Teknolojiler - Third Party Kütüphaneler
 Back-end
