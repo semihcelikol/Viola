@@ -36,10 +36,11 @@ Front-end
 
 
 # İleride Eklenecek Özellikler
-- Görevlere yorum ekleyebilme özelliği
-- Görev üzerindeki değişikliklerin saklanması (history)
-- Görev üzerinde değişiklik olduğunda ilgili kişilere email bildirim gönderilmesi
-- Türkçe dil desteğinin tamamlanması
-- Private proje seçeneği (Projeyi sadece oluşturan kişi görebilecek)
-- Kullanıcı ekleme ve email bilgisi güncellendiğinde email'in geçerli olduğuna dair onay mekanizmanısının kurulması
+- Görevlere yorum ekleyebilme özelliği.
+- Görev üzerindeki değişikliklerin saklanması (history).
+- Görev üzerinde değişiklik olduğunda ilgili kişilere email bildirim gönderilmesi.
+- Türkçe dil desteğinin tamamlanması.
+- Private proje seçeneği (Projeyi sadece oluşturan kişi görebilecek).
+- Kullanıcı ekleme ve email bilgisi güncellendiğinde email'in geçerli olduğuna dair onay mekanizmanısının kurulması.
 - Raporlama bölümünün yapılması. Time tracking vb temel raporların alınabilmesi. Ayrıca raporlar excel, csv, pdf'e dönüştürülebilmeli.
+- Saas uygulama haline getirilmesi.
