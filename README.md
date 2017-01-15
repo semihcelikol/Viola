@@ -10,6 +10,7 @@ Projelerinizi, görevlerinizi ve görevlere harcadığınız süreleri takip ede
 - Görev yönetimi
 - Efor yönetimi
 - Kullanıcı yönetimi
+- (Burası daha sonra detaylandırılacaktır)
 
 # Özellikleri
 - Çoklu dil desteği (an itibariyle tam ingilizce desteği, kısmi türkçe desteği bulunuyor)
