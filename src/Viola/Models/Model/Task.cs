@@ -81,6 +81,9 @@ namespace Viola.Models
         // child relations
         public virtual ICollection<Effort> Efforts { get; set; }
         public virtual ICollection<TaskAssignedUser> TaskAssingedUsers { get; set; }
+        //scelikol cost modules
+        public virtual ICollection<CostDetail> CostDetails { get; set; }
+        //
 
 
 

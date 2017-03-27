@@ -78,4 +78,21 @@ namespace Viola
         [Display(Name = "Slash (/)")]
         Slash
     }
+
+    //scelikol Cost Module
+    public enum TaxNum
+    {
+        [Display(Name = " ")]
+        none,
+
+        [Display(Name = "KDV %1")]
+        One,
+
+        [Display(Name = "KDV %8")]
+        Eight,
+
+        [Display(Name = "KDV %18")]
+        Eighteen
+    }
+    //
 }

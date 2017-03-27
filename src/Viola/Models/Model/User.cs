@@ -76,6 +76,10 @@ namespace Viola.Models
         public virtual ICollection<ProjectTeam> ProjectTeams { get; set; }
         public virtual ICollection<ProjectTeam> CreatedProjectTeams { get; set; }
 
+        //scelikol cost module
+        public virtual ICollection<CostDetail> CostDetails { get; set; }
+        //
+
 
 
 

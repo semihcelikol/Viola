@@ -200,7 +200,10 @@
     <Compile Include="Library\ViolaHelper.cs" />
     <Compile Include="Models\AutoMapperWebConfiguration.cs" />
     <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Model\CostModule\CostDetail.cs" />
+    <Compile Include="Models\Model\CostModule\CostType.cs" />
     <Compile Include="Models\ViewModel\CompanyViewModel.cs" />
+    <Compile Include="Models\ViewModel\CostDetailViewModels.cs" />
     <Compile Include="Models\ViewModel\EffortViewModel.cs" />
     <Compile Include="Models\ViewModel\ProjectViewModel.cs" />
     <Compile Include="Models\Model\ProjectTeam.cs" />

@@ -18,7 +18,10 @@ namespace Viola.DAL
         public DbSet<Task> Tasks { get; set; }
         public DbSet<TaskAssignedUser> TaskAssignedUsers { get; set; }
         public DbSet<ProjectTeam> ProjectTeams { get; set; }
-
+        //scelikol cost modules
+        public DbSet<CostDetail> CostDetails { get; set; }
+        public DbSet<CostType> CostTypes { get; set; }
+        //
 
         public ViolaContext() : base("ViolaDb")
         {
